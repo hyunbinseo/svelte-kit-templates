@@ -1,4 +1,4 @@
-[SvelteKit] templates generated using `create-svelte@0.0.0`.
+[SvelteKit] templates generated using `create-svelte@4.2.0`.
 
 > **Note**
 > The [kit-template-default] repository does not provide a TypeScript template.
