@@ -1,6 +1,12 @@
 import { create } from 'create-svelte';
-import { readFileSync, writeFileSync } from 'node:fs';
-import lockFile from './package-lock.json' assert { type: 'json' };
+import { execSync } from 'node:child_process';
+import { readFileSync, rmSync, writeFileSync } from 'node:fs';
+
+execSync('git checkout .');
+execSync('git pull');
+execSync('npm i create-svelte@latest');
+
+const version = execSync('npm info create-svelte version').toString().trim();
 
 const common = {
 	name: 'svelte-kit',
@@ -8,15 +14,24 @@ const common = {
 	prettier: true,
 };
 
+rmSync('javascript', { recursive: true, force: true });
+rmSync('typescript', { recursive: true, force: true });
+
 await create('javascript', { types: 'checkjs', ...common });
 await create('typescript', { types: 'typescript', ...common });
 
-const version = lockFile.packages['node_modules/create-svelte'].version;
-const readme = readFileSync('README.md', { encoding: 'utf-8' });
-
 writeFileSync(
 	'README.md',
-	readme.replace(/create-svelte@[\d\.]+\d/, `create-svelte@${version}`)
+	readFileSync('README.md', { encoding: 'utf-8' }).replace(
+		/create-svelte@[\d\.]+\d/,
+		`create-svelte@${version}`
+	)
 );
 
-console.log(`\ngit add . && git commit -m "create-svelte@${version}"\n`);
+try {
+	execSync('git add .');
+	execSync(`git commit -m "create-svelte@${version}"`);
+	execSync('git push');
+} catch {
+	console.log('Git operations failed.');
+}

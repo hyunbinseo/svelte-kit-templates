@@ -1,7 +1,4 @@
 {
-	"scripts": {
-		"update": "npm i create-svelte@latest && node index"
-	},
 	"type": "module",
 	"devDependencies": {
 		"@types/node": "^18.16.8"
