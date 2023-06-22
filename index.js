@@ -30,8 +30,8 @@ writeFileSync(
 
 try {
 	execSync('git add .');
-	execSync(`git commit -m "create-svelte@${version}"`);
-	execSync('git push');
+	execSync(`git commit -m "chore: use create-svelte@${version}"`);
+	execSync(`git tag v${version}`);
 } catch {
-	console.log('Git operations failed.');
+	console.log('git operations failed.');
 }

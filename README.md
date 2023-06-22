@@ -1,36 +1,52 @@
-[SvelteKit] templates generated using `create-svelte@4.2.0`.
-
-> **Note**
-> The [kit-template-default] repository does not provide a TypeScript template.
+[SvelteKit] templates generated using the `create-svelte@4.2.0` package.
 
 [SvelteKit]: https://kit.svelte.dev/
-[kit-template-default]: https://github.com/sveltejs/kit-template-default
 
-**Open in StackBlitz**
+## Open in StackBlitz
 
-- [JavaScript with JSDoc comments](https://stackblitz.com/github/hyunbinseo/svelte-kit-templates/tree/main/javascript?title=SvelteKit-JSDoc)
 - [TypeScript syntax](https://stackblitz.com/github/hyunbinseo/svelte-kit-templates/tree/main/typescript?title=SvelteKit-TypeScript)
+- [JavaScript with JSDoc comments](https://stackblitz.com/github/hyunbinseo/svelte-kit-templates/tree/main/javascript?title=SvelteKit-JSDoc)
 
-**Folder Structure**
+To use a specific version, replace the `/main` part with a valid [tag] name.
 
+[tag]: https://github.com/hyunbinseo/svelte-kit-templates/tags
+
+```diff
+- https://stackblitz.com/github/hyunbinseo/svelte-kit-templates/tree/main/typescript
++ https://stackblitz.com/github/hyunbinseo/svelte-kit-templates/tree/v5.0.0/typescript
 ```
-├── javascript - JavaScript with JSDoc comments
-└── typescript - TypeScript syntax
-```
 
-**Common Presets**
+## Presets
 
 ```
 ◆  Which Svelte app template?
 │  ● Skeleton project
-│  ○ SvelteKit demo app
-│  ○ Library project
+
+◆  Add type checking with TypeScript?
+│  ● Yes, using JavaScript with JSDoc comments
+│  ● Yes, using TypeScript syntax
+
+◆  Select additional options
+│  ◼ Add Prettier for code formatting
 ```
 
+## Comparison
+
+The [kit-template-default] repository does not provide a TypeScript template.
+
 ```
-◆  Select additional options
-│  ◼ Add ESLint for code linting
-│  ◻ Add Prettier for code formatting
-│  ◻ Add Playwright for browser testing
-│  ◻ Add Vitest for unit testing
+◆  Which Svelte app template?
+│  ● SvelteKit demo app
+
+◆  Add type checking with TypeScript?
+│  ● Yes, using JavaScript with JSDoc comments
+```
+
+[kit-template-default]: https://github.com/sveltejs/kit-template-default
+
+## Structure
+
+```
+├── javascript - Template: JavaScript with JSDoc comments
+└── typescript - Template: TypeScript syntax
 ```
