@@ -4,6 +4,6 @@
 		"@types/node": "^18.16.18"
 	},
 	"dependencies": {
-		"create-svelte": "^4.2.0"
+		"create-svelte": "^5.0.0"
 	}
 }
