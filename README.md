@@ -1,4 +1,4 @@
-[SvelteKit] templates generated using the `create-svelte@5.0.0` package.
+[SvelteKit] templates generated using the `create-svelte@5.0.1` package.
 
 [SvelteKit]: https://kit.svelte.dev/
 
