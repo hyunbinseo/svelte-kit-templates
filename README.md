@@ -1,6 +1,14 @@
-[SvelteKit] templates generated using the `create-svelte@5.0.1` package.
+[SvelteKit] templates generated using the `create-svelte@5.0.1` package. [Changelog]
 
 [SvelteKit]: https://kit.svelte.dev/
+[Changelog]: https://github.com/sveltejs/kit/blob/master/packages/create-svelte/CHANGELOG.md
+
+## Project Structure
+
+```
+├── javascript ← template using JavaScript with JSDoc comments
+└── typescript ← template using TypeScript syntax
+```
 
 ## Open in StackBlitz
 
@@ -21,13 +29,15 @@ To use a specific version, replace the `/main` part with a valid [tag] name.
 ```
 ◆  Which Svelte app template?
 │  ● Skeleton project
-
+│
 ◆  Add type checking with TypeScript?
 │  ● Yes, using JavaScript with JSDoc comments
 │  ● Yes, using TypeScript syntax
-
+│
 ◆  Select additional options
+│  ◼ Add ESLint for code linting
 │  ◼ Add Prettier for code formatting
+└
 ```
 
 ## Comparison
@@ -37,16 +47,10 @@ The [kit-template-default] repository does not provide a TypeScript template.
 ```
 ◆  Which Svelte app template?
 │  ● SvelteKit demo app
-
+│
 ◆  Add type checking with TypeScript?
 │  ● Yes, using JavaScript with JSDoc comments
+│
 ```
 
 [kit-template-default]: https://github.com/sveltejs/kit-template-default
-
-## Structure
-
-```
-├── javascript - Template: JavaScript with JSDoc comments
-└── typescript - Template: TypeScript syntax
-```

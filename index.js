@@ -8,10 +8,15 @@ execSync('npm i create-svelte@latest');
 
 const version = execSync('npm info create-svelte version').toString().trim();
 
+// Reference https://github.com/sveltejs/kit/tree/master/packages/create-svelte#readme
+
 const common = {
 	name: 'svelte-kit',
-	template: 'skeleton',
+	template: 'skeleton', // or 'default' or 'skeletonlib'
 	prettier: true,
+	eslint: true,
+	playwright: false,
+	vitest: false,
 };
 
 rmSync('javascript', { recursive: true, force: true });
