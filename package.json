@@ -5,5 +5,9 @@
 	},
 	"dependencies": {
 		"create-svelte": "^5.0.2"
-	}
+	},
+	"workspaces": [
+		"javascript",
+		"typescript"
+	]
 }

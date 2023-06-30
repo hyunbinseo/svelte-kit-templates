@@ -4,9 +4,14 @@ import { readFileSync, rmSync, writeFileSync } from 'node:fs';
 
 execSync('git checkout .');
 execSync('git pull');
-execSync('npm i create-svelte@latest');
 
-const version = execSync('npm info create-svelte version').toString().trim();
+// The default version is "latest" if unspecified.
+// https://docs.npmjs.com/cli/v9/commands/npm-view
+const version = execSync('npm view create-svelte version').toString().trim();
+const pkg = `create-svelte@${version}`;
+
+console.log(pkg);
+execSync(`npm install ${pkg}`);
 
 // Reference https://github.com/sveltejs/kit/tree/master/packages/create-svelte#readme
 
@@ -29,6 +34,9 @@ rmSync('typescript', { recursive: true, force: true });
 
 await create('javascript', generateOptions('checkjs'));
 await create('typescript', generateOptions('typescript'));
+
+execSync('npm install', { stdio: 'inherit' });
+execSync('npm update', { stdio: 'inherit' });
 
 writeFileSync(
 	'README.md',
