@@ -10,20 +10,25 @@ const version = execSync('npm info create-svelte version').toString().trim();
 
 // Reference https://github.com/sveltejs/kit/tree/master/packages/create-svelte#readme
 
-const common = {
-	name: 'svelte-kit',
+/**
+ * @param {'checkjs' | 'typescript'} type
+ * @returns svelte-create Options
+ */
+const generateOptions = (type) => ({
+	types: type,
+	name: `svelte-kit-${type}`,
 	template: 'skeleton', // or 'default' or 'skeletonlib'
 	prettier: true,
 	eslint: true,
 	playwright: false,
 	vitest: false,
-};
+});
 
 rmSync('javascript', { recursive: true, force: true });
 rmSync('typescript', { recursive: true, force: true });
 
-await create('javascript', { types: 'checkjs', ...common });
-await create('typescript', { types: 'typescript', ...common });
+await create('javascript', generateOptions('checkjs'));
+await create('typescript', generateOptions('typescript'));
 
 writeFileSync(
 	'README.md',
