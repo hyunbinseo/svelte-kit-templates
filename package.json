@@ -4,7 +4,7 @@
 		"@types/node": "^18.16.18"
 	},
 	"dependencies": {
-		"create-svelte": "^5.0.2"
+		"create-svelte": "^5.0.3"
 	},
 	"workspaces": [
 		"javascript",
