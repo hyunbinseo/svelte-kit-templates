@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       create-svelte:
-        specifier: ^5.1.0
-        version: 5.1.0
+        specifier: ^5.1.1
+        version: 5.1.1
 
   javascript:
     devDependencies:
@@ -815,8 +815,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /create-svelte@5.1.0:
-    resolution: {integrity: sha512-u9gzqN9g37XdL0l+XALTOQzD+Ln1F00dH5GDa6mnOEj1TbTczSkQqUNFH0c9UDPxB5co6i4gmma91pAFWu1BYg==}
+  /create-svelte@5.1.1:
+    resolution: {integrity: sha512-rvmOQyAuS/CLV5gieOPiSedJOXHB46oSfCRdYOrRewv8TJ3WmenPL78XPej78sptIw+AjdXcpcJYb/65bkwxHQ==}
     hasBin: true
     dependencies:
       '@clack/prompts': 0.7.0
