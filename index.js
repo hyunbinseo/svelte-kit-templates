@@ -35,8 +35,11 @@ rmSync('typescript', { recursive: true, force: true });
 await create('javascript', generateOptions('checkjs'));
 await create('typescript', generateOptions('typescript'));
 
+// Inside a workspace, pnpm install installs all dependencies in all the projects.
 execSync('pnpm install', { stdio: 'inherit' });
-execSync('pnpm update', { stdio: 'inherit' });
+
+// Concurrently runs update in all subdirectories with a package.json
+execSync('pnpm update --recursive', { stdio: 'inherit' });
 
 writeFileSync(
 	'README.md',
