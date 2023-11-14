@@ -1,4 +1,3 @@
-import { create } from 'create-svelte';
 import { execSync } from 'node:child_process';
 import { readFileSync, rmSync, writeFileSync } from 'node:fs';
 
@@ -31,6 +30,8 @@ const generateOptions = (type) => ({
 
 rmSync('javascript', { recursive: true, force: true });
 rmSync('typescript', { recursive: true, force: true });
+
+const { create } = await import('create-svelte');
 
 await create('javascript', generateOptions('checkjs'));
 await create('typescript', generateOptions('typescript'));
