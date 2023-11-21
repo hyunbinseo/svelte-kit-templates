@@ -18,15 +18,16 @@ execSync(`pnpm add ${pkg.spec} --workspace-root`);
  * @param {'checkjs' | 'typescript'} type
  * @returns svelte-create Options
  */
-const generateOptions = (type) => ({
-	types: type,
-	name: `svelte-kit-${type}`,
-	template: 'skeleton', // or 'default' or 'skeletonlib'
-	prettier: true,
-	eslint: true,
-	playwright: false,
-	vitest: false,
-});
+const generateOptions = (type) =>
+	/** @type {const} */ ({
+		types: type,
+		name: `svelte-kit-${type}`,
+		template: 'skeleton', // or 'default' or 'skeletonlib'
+		prettier: true,
+		eslint: true,
+		playwright: false,
+		vitest: false,
+	});
 
 rmSync('javascript', { recursive: true, force: true });
 rmSync('typescript', { recursive: true, force: true });
