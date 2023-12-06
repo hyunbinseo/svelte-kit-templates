@@ -53,8 +53,9 @@ writeFileSync(
 
 try {
 	execSync('git add .');
-	execSync(`git commit -m "chore: use ${pkg.spec}"`);
+	execSync(`git commit -m "${pkg.spec}"`);
 	execSync(`git tag v${pkg.version}`);
+	execSync('git push --follow-tags');
 } catch {
 	console.log('git operations failed.');
 }
