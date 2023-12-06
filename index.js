@@ -4,11 +4,15 @@ import { readFileSync, rmSync, writeFileSync } from 'node:fs';
 execSync('git checkout .');
 execSync('git pull');
 
+const latestTag = execSync('git describe --tags --abbrev=0').toString().trim();
+
 const pkg = (() => {
 	const name = 'create-svelte';
 	const version = execSync(`pnpm view ${name} version`).toString().trim();
 	return { name, version, spec: `${name}@${version}` };
 })();
+
+if (latestTag === `v${pkg.version}`) throw new Error('New version not found.');
 
 execSync(`pnpm add ${pkg.spec} --workspace-root`);
 
