@@ -58,8 +58,9 @@ writeFileSync(
 try {
 	execSync('git add .');
 	execSync(`git commit -m "${pkg.spec}"`);
+	execSync('git push origin');
 	execSync(`git tag v${pkg.version}`);
-	execSync('git push --follow-tags');
+	execSync(`git push origin v${pkg.version}`);
 } catch {
 	console.log('git operations failed.');
 }
