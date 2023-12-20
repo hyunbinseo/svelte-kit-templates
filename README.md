@@ -1,7 +1,7 @@
 [SvelteKit] templates generated using the `create-svelte@6.0.4` package. [Changelog]
 
 [SvelteKit]: https://kit.svelte.dev/
-[Changelog]: https://github.com/sveltejs/kit/blob/master/packages/create-svelte/CHANGELOG.md
+[Changelog]: https://github.com/sveltejs/kit/blob/main/packages/create-svelte/CHANGELOG.md
 
 ## Project Structure
 

@@ -16,7 +16,7 @@ if (latestTag === `v${pkg.version}`) throw new Error('New version not found.');
 
 execSync(`pnpm add ${pkg.spec} --workspace-root`);
 
-// Reference https://github.com/sveltejs/kit/tree/master/packages/create-svelte#readme
+// Reference https://github.com/sveltejs/kit/tree/main/packages/create-svelte#readme
 
 /**
  * @param {'checkjs' | 'typescript'} type
