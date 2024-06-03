@@ -23,11 +23,15 @@ if (bump) {
 
 execSync(`pnpm add create-svelte@latest --workspace-root`, { stdio: 'inherit' });
 
+const latestTag = execSync('git describe --tags --abbrev=0').toString().trim().substring(1);
 const { version } = JSON.parse(readFileSync('node_modules/create-svelte/package.json', 'utf8'));
-const { create } = await import('create-svelte');
+
+if (latestTag === version) throw new Error('New version not found.');
 
 rmSync('javascript', { recursive: true, force: true });
 rmSync('typescript', { recursive: true, force: true });
+
+const { create } = await import('create-svelte');
 
 await create('javascript', generateOptions('checkjs'));
 await create('typescript', generateOptions('typescript'));
