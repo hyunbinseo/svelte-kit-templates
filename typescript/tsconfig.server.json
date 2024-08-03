@@ -16,9 +16,7 @@
 		"./src/**/+server.js",
 		"./src/**/+server.ts"
 	],
-	"compilerOptions": {
-		// Node.js 18 supports all ES2022 APIs.
-		// Reference https://node.green/#ES2022
-		"lib": ["ES2022"]
-	}
+	// Node.js 18 supports all ES2022 APIs.
+	// Reference https://node.green/#ES2022
+	"compilerOptions": { "lib": ["ES2022"] }
 }

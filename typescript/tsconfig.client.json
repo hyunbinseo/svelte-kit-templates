@@ -14,7 +14,5 @@
 		"./src/**/+server.js",
 		"./src/**/+server.ts"
 	],
-	"compilerOptions": {
-		"lib": ["ES2020", "DOM", "DOM.Iterable"]
-	}
+	"compilerOptions": { "lib": ["ES2020"] }
 }

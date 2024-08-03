@@ -1,5 +1,9 @@
 {
-	"files": [],
+	// Required for the Svelte TS plugin.
+	// Fix custom path resolve (e.g. $lib):
+	"extends": "./.svelte-kit/tsconfig.json",
+	// Override lib inside Svelte script blocks:
+	"compilerOptions": { "lib": ["ES2020", "DOM", "DOM.Iterable"] },
 	"references": [
 		{ "path": "./tsconfig.client.json" }, //
 		{ "path": "./tsconfig.server.json" }
