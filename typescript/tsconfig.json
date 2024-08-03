@@ -1,11 +1,25 @@
 {
-	// Required for the Svelte TS plugin.
-	// Fix custom path resolve (e.g. $lib):
 	"extends": "./.svelte-kit/tsconfig.json",
-	// Override lib inside Svelte script blocks:
-	"compilerOptions": { "lib": ["ES2020", "DOM", "DOM.Iterable"] },
-	"references": [
-		{ "path": "./tsconfig.client.json" }, //
-		{ "path": "./tsconfig.server.json" }
-	]
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		// Vite's default `build.target` value is similar to ES2020.
+		// Vite only handles syntax transforms and does not cover polyfills.
+		// Reference https://vitejs.dev/guide/build.html#browser-compatibility
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		// Required for the top-level `references` option.
+		"composite": true,
+		"noEmit": false,
+		"emitDeclarationOnly": true // Required for JS files.
+	},
+	// VS Code only uses `tsconfig.json` named configuration files.
+	// Reference https://github.com/microsoft/TypeScript/issues/33094
+	"references": [{ "path": "./tsconfig.server.json" }]
 }

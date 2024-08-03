@@ -1,13 +1,17 @@
 {
-	"extends": "./tsconfig.shared.json",
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		// Node.js 18 supports all ES2022 APIs.
+		// Reference https://node.green/#ES2022
+		"lib": ["ES2022"]
+	},
 	"include": [
-		// Existing
 		"./.svelte-kit/ambient.d.ts",
 		"./.svelte-kit/non-ambient.d.ts",
 		"./.svelte-kit/types/**/$types.d.ts",
 		"./vite.config.js",
 		"./vite.config.ts",
-		// Added
+		// Only include server files.
 		"./src/app.d.ts",
 		"./src/lib/server/**/*.js",
 		"./src/lib/server/**/*.ts",
@@ -15,8 +19,5 @@
 		"./src/**/*.server.ts",
 		"./src/**/+server.js",
 		"./src/**/+server.ts"
-	],
-	// Node.js 18 supports all ES2022 APIs.
-	// Reference https://node.green/#ES2022
-	"compilerOptions": { "lib": ["ES2022"] }
+	]
 }
