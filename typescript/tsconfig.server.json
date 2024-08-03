@@ -1,6 +1,15 @@
 {
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
+		"composite": true,
+		// Emit cannot be disabled.
+		// Reference https://github.com/microsoft/TypeScript/issues/49844
+		"noEmit": false,
+		// Composite projects may not disable declaration emit.
+		// Reference https://www.typescriptlang.org/tsconfig/#composite
+		// Reference https://github.com/microsoft/TypeScript/issues/42873
+		"declaration": true,
+		"emitDeclarationOnly": true,
 		// Node.js 18 supports all ES2022 APIs.
 		// Reference https://node.green/#ES2022
 		"lib": ["ES2022"]

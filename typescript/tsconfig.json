@@ -13,11 +13,7 @@
 		// Vite's default `build.target` value is similar to ES2020.
 		// Vite only handles syntax transforms and does not cover polyfills.
 		// Reference https://vitejs.dev/guide/build.html#browser-compatibility
-		"lib": ["ES2020", "DOM", "DOM.Iterable"],
-		// Required for the top-level `references` option.
-		"composite": true,
-		"noEmit": false,
-		"emitDeclarationOnly": true // Required for JS files.
+		"lib": ["ES2020", "DOM", "DOM.Iterable"]
 	},
 	// VS Code only uses `tsconfig.json` named configuration files.
 	// Reference https://github.com/microsoft/TypeScript/issues/33094
