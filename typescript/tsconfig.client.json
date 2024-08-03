@@ -1,0 +1,20 @@
+{
+	"extends": "./tsconfig.shared.json",
+	"exclude": [
+		// Existing
+		"./node_modules/**",
+		"./src/service-worker.js",
+		"./src/service-worker.ts",
+		"./src/service-worker.d.ts",
+		// Added
+		"./src/lib/server/**/*.js",
+		"./src/lib/server/**/*.ts",
+		"./src/**/*.server.js",
+		"./src/**/*.server.ts",
+		"./src/**/+server.js",
+		"./src/**/+server.ts"
+	],
+	"compilerOptions": {
+		"lib": ["ES2020", "DOM", "DOM.Iterable"]
+	}
+}
