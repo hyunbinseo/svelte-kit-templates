@@ -10,12 +10,11 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		// Vite's default `build.target` value is similar to ES2020.
-		// Vite only handles syntax transforms and does not cover polyfills.
-		// Reference https://vitejs.dev/guide/build.html#browser-compatibility
-		"lib": ["ES2020", "DOM", "DOM.Iterable"]
+		// Node.js 18 supports all ES2022 APIs.
+		// Reference https://node.green/#ES2022
+		"lib": ["ES2022"]
 	},
 	// VS Code only uses `tsconfig.json` named configuration files.
 	// Reference https://github.com/microsoft/TypeScript/issues/33094
-	"references": [{ "path": "./tsconfig.server.json" }]
+	"references": [{ "path": "./tsconfig.client.json" }]
 }

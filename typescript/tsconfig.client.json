@@ -10,18 +10,17 @@
 		// Reference https://github.com/microsoft/TypeScript/issues/42873
 		"declaration": true,
 		"emitDeclarationOnly": true,
-		// Node.js 18 supports all ES2022 APIs.
-		// Reference https://node.green/#ES2022
-		"lib": ["ES2022"]
+		// Vite's default `build.target` value is similar to ES2020.
+		// Vite only handles syntax transforms and does not cover polyfills.
+		// Reference https://vitejs.dev/guide/build.html#browser-compatibility
+		"lib": ["ES2020", "DOM", "DOM.Iterable"]
 	},
-	"include": [
-		"./.svelte-kit/ambient.d.ts",
-		"./.svelte-kit/non-ambient.d.ts",
-		"./.svelte-kit/types/**/$types.d.ts",
-		"./vite.config.js",
-		"./vite.config.ts",
-		// Only include server files.
-		"./src/app.d.ts",
+	"exclude": [
+		"./node_modules/**",
+		"./src/service-worker.js",
+		"./src/service-worker.ts",
+		"./src/service-worker.d.ts",
+		// Exclude server files.
 		"./src/lib/server/**/*.js",
 		"./src/lib/server/**/*.ts",
 		"./src/**/*.server.js",

@@ -1,2 +1,5 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	// FIXME Should show a ts(2550) error.
+	// tsconfig.client.json is not applied.
+	[].at(-1);
+</script>
