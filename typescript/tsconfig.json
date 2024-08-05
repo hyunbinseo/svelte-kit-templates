@@ -12,7 +12,7 @@
 		"strict": true,
 		// Node.js 18 supports all ES2022 APIs.
 		// Reference https://node.green/#ES2022
-		"lib": ["ES2022"]
+		"lib": ["ES2022", "DOM.Iterable"]
 	},
 	// VS Code only uses `tsconfig.json` named configuration files.
 	// Reference https://github.com/microsoft/TypeScript/issues/33094
