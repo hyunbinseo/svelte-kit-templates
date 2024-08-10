@@ -13,7 +13,7 @@ const generateOptions = (type) =>
 		vitest: false,
 	});
 
-const bump = process.env.npm_lifecycle_event === 'bump';
+const bump = process.env.NODE_RUN_SCRIPT_NAME === 'bump';
 
 if (bump) {
 	execSync('git checkout main');
@@ -46,8 +46,8 @@ writeFileSync(
 	'README.md',
 	readFileSync('README.md', { encoding: 'utf-8' }).replace(
 		/create-svelte@[\d\.]+\d/,
-		`create-svelte@${version}`
-	)
+		`create-svelte@${version}`,
+	),
 );
 
 if (bump) {
