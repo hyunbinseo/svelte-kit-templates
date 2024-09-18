@@ -12,20 +12,20 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^3.2.4",
-		"@sveltejs/kit": "^2.5.26",
+		"@sveltejs/adapter-auto": "^3.2.5",
+		"@sveltejs/kit": "^2.5.28",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"@types/eslint": "^9.6.1",
-		"eslint": "^9.9.1",
+		"eslint": "^9.10.0",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.43.0",
+		"eslint-plugin-svelte": "^2.44.0",
 		"globals": "^15.9.0",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.6",
 		"svelte": "^4.2.19",
-		"svelte-check": "^4.0.1",
-		"typescript": "^5.5.4",
-		"vite": "^5.4.3"
+		"svelte-check": "^4.0.2",
+		"typescript": "^5.6.2",
+		"vite": "^5.4.6"
 	},
 	"type": "module"
 }
