@@ -1,58 +1,42 @@
 import { execSync } from 'node:child_process';
 import { readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { argv, exit } from 'node:process';
 
-/** @param {'checkjs' | 'typescript'} type */
-const generateOptions = (type) =>
-	/** @type {const} */ ({
-		types: type,
-		name: `svelte-kit-${type}`,
-		template: 'skeleton', // or 'default' or 'skeletonlib'
-		prettier: true,
-		eslint: true,
-		playwright: false,
-		vitest: false,
-	});
+const isBump = argv[2] === '--bump';
 
-const bump = process.env.NODE_RUN_SCRIPT_NAME === 'bump';
-
-if (bump) {
+if (isBump) {
 	execSync('git checkout main');
 	execSync('git fetch origin');
 	execSync('git reset --hard origin/main');
 }
 
-execSync(`pnpm add create-svelte@latest --workspace-root`, { stdio: 'inherit' });
+const response = await fetch('https://unpkg.com/sv/README.md');
+if (!response.ok || !response.redirected) exit(1);
 
-const latestTag = execSync('git describe --tags --abbrev=0').toString().trim().substring(1);
-const { version } = JSON.parse(readFileSync('node_modules/create-svelte/package.json', 'utf8'));
+const version = response.url.replace('https://unpkg.com/sv@', '').split('/')[0];
 
-if (latestTag === version) throw new Error('New version not found.');
+rmSync('./javascript', { recursive: true, force: true });
+rmSync('./typescript', { recursive: true, force: true });
 
-rmSync('javascript', { recursive: true, force: true });
-rmSync('typescript', { recursive: true, force: true });
+// prettier-ignore
+execSync('pnpm dlx sv create --template minimal --no-install --no-add-ons --types jsdoc javascript');
+execSync('pnpm dlx sv add --no-preconditions --no-install --cwd javascript eslint prettier');
 
-const { create } = await import('create-svelte');
-
-await create('javascript', generateOptions('checkjs'));
-await create('typescript', generateOptions('typescript'));
-
-// Inside a workspace, pnpm install installs all dependencies in all the projects.
-execSync('pnpm install', { stdio: 'inherit' });
-
-// Concurrently runs update in all subdirectories with a package.json
-execSync('pnpm update --recursive', { stdio: 'inherit' });
+// prettier-ignore
+execSync('pnpm dlx sv create --template minimal --no-install --no-add-ons --types ts typescript');
+execSync('pnpm dlx sv add --no-preconditions --no-install --cwd typescript eslint prettier');
 
 writeFileSync(
 	'README.md',
 	readFileSync('README.md', { encoding: 'utf-8' }).replace(
-		/create-svelte@[\d\.]+\d/,
-		`create-svelte@${version}`,
+		/sv@[\d\.]+\d/, //
+		`sv@${version}`,
 	),
 );
 
-if (bump) {
+if (isBump) {
 	execSync('git add .');
-	execSync(`pnpm version ${version} -m "create-svelte@${version}" --force`, { stdio: 'inherit' });
+	execSync(`pnpm version ${version} -m "sv@${version}" --force`, { stdio: 'inherit' });
 	execSync('git push');
 	execSync('git push --tags');
 }

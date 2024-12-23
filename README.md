@@ -1,7 +1,7 @@
-[SvelteKit] templates generated using the `create-svelte@6.4.0` package. [Changelog]
+[SvelteKit] templates generated using the `sv@0.0.0` package. [Changelog]
 
-[SvelteKit]: https://kit.svelte.dev/
-[Changelog]: https://github.com/sveltejs/kit/blob/main/packages/create-svelte/CHANGELOG.md
+[SvelteKit]: https://svelte.dev/
+[Changelog]: https://github.com/sveltejs/cli/blob/main/packages/cli/CHANGELOG.md
 
 ## Project Structure
 
@@ -21,36 +21,19 @@ To use a specific version, replace the `/main` part with a valid [tag] name.
 
 ```diff
 - https://stackblitz.com/github/hyunbinseo/svelte-kit-templates/tree/main/typescript
-+ https://stackblitz.com/github/hyunbinseo/svelte-kit-templates/tree/v5.0.0/typescript
++ https://stackblitz.com/github/hyunbinseo/svelte-kit-templates/tree/v0.6.9/typescript
 ```
 
 ## Presets
 
-```
-◆  Which Svelte app template?
-│  ● Skeleton project
-│
-◆  Add type checking with TypeScript?
-│  ● Yes, using JavaScript with JSDoc comments
-│  ● Yes, using TypeScript syntax
-│
-◆  Select additional options
-│  ◼ Add ESLint for code linting
-│  ◼ Add Prettier for code formatting
-└
+```shell
+sv create --template minimal --types jsdoc
+sv create --template minimal --types ts
+sv add eslint prettier
 ```
 
 ## Comparison
 
 The [kit-template-default] repository does not provide a TypeScript template.
-
-```
-◆  Which Svelte app template?
-│  ● SvelteKit demo app
-│
-◆  Add type checking with TypeScript?
-│  ● Yes, using JavaScript with JSDoc comments
-│
-```
 
 [kit-template-default]: https://github.com/sveltejs/kit-template-default
