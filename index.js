@@ -35,6 +35,7 @@ writeFileSync(
 );
 
 if (isBump) {
+	execSync('pnpm i -r');
 	execSync('git add .');
 	execSync(`pnpm version ${version} -m "sv@${version}" --force`, { stdio: 'inherit' });
 	execSync('git push');
