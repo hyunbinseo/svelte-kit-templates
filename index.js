@@ -18,13 +18,13 @@ const version = response.url.replace('https://unpkg.com/sv@', '').split('/')[0];
 rmSync('./javascript', { recursive: true, force: true });
 rmSync('./typescript', { recursive: true, force: true });
 
-// prettier-ignore
-execSync('pnpm dlx sv create --template minimal --no-install --no-add-ons --types jsdoc javascript');
-execSync('pnpm dlx sv add --no-preconditions --no-install --cwd javascript eslint prettier');
+execSync('pnpm dlx sv create --template minimal --no-add-ons --types jsdoc javascript');
+execSync('pnpm dlx sv add --no-preconditions --cwd javascript eslint prettier');
 
-// prettier-ignore
-execSync('pnpm dlx sv create --template minimal --no-install --no-add-ons --types ts typescript');
-execSync('pnpm dlx sv add --no-preconditions --no-install --cwd typescript eslint prettier');
+execSync('pnpm dlx sv create --template minimal --no-add-ons --types ts typescript');
+execSync('pnpm dlx sv add --no-preconditions --cwd typescript eslint prettier');
+
+execSync('pnpm i -r');
 
 writeFileSync(
 	'README.md',
@@ -35,7 +35,6 @@ writeFileSync(
 );
 
 if (isBump) {
-	execSync('pnpm i -r');
 	execSync('git add .');
 	execSync(`pnpm version ${version} -m "sv@${version}" --force`, { stdio: 'inherit' });
 	execSync('git push');
