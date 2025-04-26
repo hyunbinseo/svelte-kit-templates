@@ -57,7 +57,7 @@ importers:
         specifier: ^5.0.0
         version: 5.8.3
       vite:
-        specifier: ^6.2.5
+        specifier: ^6.2.6
         version: 6.3.2(@types/node@22.14.1)
 
   typescript:
@@ -108,7 +108,7 @@ importers:
         specifier: ^8.20.0
         version: 8.31.0(eslint@9.25.1)(typescript@5.8.3)
       vite:
-        specifier: ^6.2.5
+        specifier: ^6.2.6
         version: 6.3.2(@types/node@22.14.1)
 
 packages:
