@@ -1,4 +1,4 @@
-[SvelteKit] templates generated using the `sv@0.9.5` package. [Changelog]
+[SvelteKit] templates generated using the `sv@0.9.6` package. [Changelog]
 
 [SvelteKit]: https://svelte.dev/
 [Changelog]: https://github.com/sveltejs/cli/blob/main/packages/cli/CHANGELOG.md
