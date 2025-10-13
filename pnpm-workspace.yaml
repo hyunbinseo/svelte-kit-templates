@@ -3,3 +3,4 @@ packages:
   - typescript
 onlyBuiltDependencies:
   - esbuild
+  - '@tailwindcss/oxide'
