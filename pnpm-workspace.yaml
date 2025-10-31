@@ -1,6 +1,6 @@
 packages:
   - javascript
   - typescript
+
 onlyBuiltDependencies:
   - esbuild
-  - '@tailwindcss/oxide'
