@@ -18,13 +18,10 @@ const version = response.url.replace('https://unpkg.com/sv@', '').split('/')[0];
 rmSync('./javascript', { recursive: true, force: true });
 rmSync('./typescript', { recursive: true, force: true });
 
-const plugins = ['eslint', 'prettier', 'tailwindcss="plugins:form"'];
+const plugins = ['eslint', 'prettier', 'tailwindcss="plugins:forms"'].join(' ');
 
-execSync('pnpm dlx sv create --template minimal --no-add-ons --types jsdoc javascript');
-execSync(`pnpm dlx sv add --no-git-check --cwd javascript ${plugins.join(' ')}`);
-
-execSync('pnpm dlx sv create --template minimal --no-add-ons --types ts typescript');
-execSync(`pnpm dlx sv add --no-git-check --cwd typescript ${plugins.join(' ')}`);
+execSync(`pnpm dlx sv create --template minimal --add ${plugins} --types jsdoc javascript`);
+execSync(`pnpm dlx sv create --template minimal --add ${plugins} --types ts typescript`);
 
 execSync('pnpm i -r');
 
