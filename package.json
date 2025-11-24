@@ -1,6 +1,6 @@
 {
 	"name": "svelte-kit-templates",
-	"version": "0.9.14",
+	"version": "0.10.4",
 	"type": "module",
 	"scripts": {
 		"bump": "node index --bump"

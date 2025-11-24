@@ -1,4 +1,3 @@
-import prettier from 'eslint-config-prettier';
 import { fileURLToPath } from 'node:url';
 import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
@@ -13,8 +12,6 @@ export default [
 	includeIgnoreFile(gitignorePath),
 	js.configs.recommended,
 	...svelte.configs.recommended,
-	prettier,
-	...svelte.configs.prettier,
 	{
 		languageOptions: {
 			globals: { ...globals.browser, ...globals.node }
