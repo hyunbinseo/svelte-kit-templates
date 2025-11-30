@@ -19,11 +19,10 @@ rmSync('./javascript', { recursive: true, force: true });
 rmSync('./typescript', { recursive: true, force: true });
 
 const plugins = ['eslint', 'prettier', 'tailwindcss="plugins:forms"'].join(' ');
+const command = `pnpm dlx sv create --template minimal --add ${plugins} --install pnpm`;
 
-execSync(`pnpm dlx sv create --template minimal --add ${plugins} --types jsdoc javascript`);
-execSync(`pnpm dlx sv create --template minimal --add ${plugins} --types ts typescript`);
-
-execSync('pnpm i -r');
+execSync(`${command} --types jsdoc javascript `);
+execSync(`${command} --types ts typescript`);
 
 writeFileSync(
 	'README.md',
