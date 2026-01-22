@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+	import { redirectForm } from './form.remote';
+
+	const id = $props.id();
+</script>
+
+<form {...redirectForm} target="_blank">
+	<button>Plain Submit</button>
+	<button {...redirectForm.fields.id.as('submit', id)}>Submit with Spread</button>
+</form>
