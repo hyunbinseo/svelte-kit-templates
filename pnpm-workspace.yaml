@@ -3,5 +3,8 @@ packages:
   - typescript
 
 onlyBuiltDependencies:
-  - esbuild
+  - '@sentry/cli'
   - '@tailwindcss/oxide'
+  - esbuild
+  - sharp
+  - workerd
