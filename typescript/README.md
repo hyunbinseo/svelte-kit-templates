@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-pnpm dlx sv@0.14.0 create --template minimal --types ts --add eslint prettier tailwindcss="plugins:forms" --install pnpm typescript
+pnpm dlx sv@0.14.0 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:forms" drizzle="database:sqlite+sqlite:libsql" --install pnpm typescript
 ```
 
 ## Developing
