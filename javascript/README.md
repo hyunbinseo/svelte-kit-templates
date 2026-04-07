@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-pnpm dlx sv@0.14.0 create --template minimal --types jsdoc --add eslint prettier tailwindcss="plugins:forms" --install pnpm javascript
+pnpm dlx sv@0.14.1 create --template minimal --types jsdoc --add eslint prettier tailwindcss="plugins:forms" --install pnpm javascript
 ```
 
 ## Developing
