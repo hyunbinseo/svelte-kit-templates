@@ -34,7 +34,7 @@ writeFileSync(
 
 if (isBump) {
 	execSync('git add .');
-	execSync(`pnpm version ${version} -m "sv@${version}" --force`, { stdio: 'inherit' });
+	execSync(`pnpm version ${version} -m "sv@${version}" --no-git-checks`, { stdio: 'inherit' });
 	execSync('git push');
 	execSync('git push --tags');
 }
