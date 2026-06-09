@@ -3,7 +3,7 @@
 	"version": "0.16.0",
 	"type": "module",
 	"scripts": {
-		"bump": "node index.ts --bump"
+		"bump": "node index.ts"
 	},
 	"devDependencies": {
 		"@types/node": "^24.12.4",
