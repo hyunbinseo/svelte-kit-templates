@@ -18,7 +18,12 @@ const version = response.url.replace('https://unpkg.com/sv@', '').split('/')[0];
 rmSync('./javascript', { recursive: true, force: true });
 rmSync('./typescript', { recursive: true, force: true });
 
-const plugins = ['eslint', 'prettier', 'tailwindcss="plugins:forms"'].join(' ');
+const plugins = [
+	'drizzle="database:sqlite+client:better-sqlite3"',
+	'eslint',
+	'prettier',
+	'tailwindcss="plugins:forms"',
+].join(' ');
 const command = `pnpm dlx sv create --template minimal --add ${plugins} --install pnpm`;
 
 execSync(`${command} --types jsdoc javascript `);
