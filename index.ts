@@ -1,6 +1,7 @@
 import { execSync } from 'node:child_process';
 import { readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { argv, exit } from 'node:process';
+import { object, parse, string } from 'valibot';
 
 const isBump = argv[2] === '--bump';
 
@@ -10,10 +11,10 @@ if (isBump) {
 	execSync('git reset --hard origin/main');
 }
 
-const response = await fetch('https://unpkg.com/sv/README.md');
-if (!response.ok || !response.redirected) exit(1);
+const response = await fetch('https://registry.npmjs.org/sv/latest');
+if (!response.ok) exit(1);
 
-const version = response.url.replace('https://unpkg.com/sv@', '').split('/')[0];
+const pkg = parse(object({ version: string() }), await response.json());
 
 rmSync('./javascript', { recursive: true, force: true });
 rmSync('./typescript', { recursive: true, force: true });
@@ -24,6 +25,7 @@ const plugins = [
 	'prettier',
 	'tailwindcss="plugins:forms"',
 ].join(' ');
+
 const command = `pnpm dlx sv create --template minimal --add ${plugins} --install pnpm`;
 
 execSync(`${command} --types jsdoc javascript `);
@@ -32,14 +34,17 @@ execSync(`${command} --types ts typescript`);
 writeFileSync(
 	'README.md',
 	readFileSync('README.md', { encoding: 'utf-8' }).replace(
-		/sv@[\d\.]+\d/, //
-		`sv@${version}`,
+		/sv@[\d.]+\d/, //
+		`sv@${pkg.version}`,
 	),
 );
 
 if (isBump) {
 	execSync('git add .');
-	execSync(`pnpm version ${version} -m "sv@${version}" --no-git-checks`, { stdio: 'inherit' });
+
+	const command = `pnpm version ${pkg.version} -m "sv@${pkg.version}" --no-git-checks`;
+	execSync(command, { stdio: 'inherit' });
+
 	execSync('git push');
 	execSync('git push --tags');
 }
