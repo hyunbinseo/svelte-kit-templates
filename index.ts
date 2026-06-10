@@ -1,5 +1,6 @@
 import { execSync } from 'node:child_process';
 import { readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { argv, exit } from 'node:process';
 import { object, parse, string } from 'valibot';
 import local from './package.json' with { type: 'json' };
@@ -22,23 +23,40 @@ if (!noGit && local.version === remote.version) {
 	exit(0);
 }
 
-rmSync('./javascript', { recursive: true, force: true });
-rmSync('./typescript', { recursive: true, force: true });
+execSync(`pnpm add -D sv@${remote.version}`);
+const sv = await import('sv');
 
-const plugins = [
-	'drizzle="database:sqlite+client:better-sqlite3"',
-	'eslint',
-	'prettier',
-	'tailwindcss="plugins:forms"',
-];
+for (const lang of ['javascript', 'typescript'] as const) {
+	const cwd = resolve(import.meta.dirname, lang);
+	rmSync(cwd, { recursive: true, force: true });
 
-const commands = {
-	create: `pnpm dlx sv create --template minimal --add ${plugins.join(' ')} --install pnpm`,
-	version: `pnpm version ${remote.version} -m "sv@${remote.version}" --no-git-checks`,
-};
+	sv.create({
+		cwd,
+		name: lang,
+		template: 'minimal',
+		types: {
+			javascript: 'checkjs' as const,
+			typescript: 'typescript' as const,
+		}[lang],
+	});
 
-execSync(`${commands.create} --types jsdoc javascript`);
-execSync(`${commands.create} --types ts typescript`);
+	await sv.add({
+		cwd,
+		addons: {
+			drizzle: sv.officialAddons.drizzle,
+			eslint: sv.officialAddons.eslint,
+			prettier: sv.officialAddons.prettier,
+			tailwindcss: sv.officialAddons.tailwindcss,
+		},
+		options: {
+			drizzle: { database: 'sqlite', client: 'better-sqlite3' },
+			eslint: {},
+			prettier: {},
+			tailwindcss: { plugins: ['forms'] },
+		},
+		packageManager: 'pnpm',
+	});
+}
 
 writeFileSync(
 	'README.md',
@@ -50,7 +68,8 @@ writeFileSync(
 
 if (!noGit) {
 	execSync('git add .');
-	execSync(commands.version, { stdio: 'inherit' });
+	const command = `pnpm version ${remote.version} -m "sv@${remote.version}" --no-git-checks`;
+	execSync(command, { stdio: 'inherit' });
 	execSync('git push');
 	execSync('git push --tags');
 }

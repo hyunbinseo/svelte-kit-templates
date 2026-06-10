@@ -11,6 +11,9 @@ importers:
       '@types/node':
         specifier: ^24.12.4
         version: 24.12.4
+      sv:
+        specifier: ^0.16.0
+        version: 0.16.0
       valibot:
         specifier: ^1.4.1
         version: 1.4.1(typescript@6.0.3)
@@ -366,6 +369,9 @@ packages:
   '@sveltejs/load-config@0.1.1':
     resolution: {integrity: sha512-BXXm+VOH/9X4N7Dd1iZ2MqA1h7M+9i2noI8QYuLDY8QcN2WHYn7D/VK/+IJNfcAmRw7ACNJ538UT9GXIhnBTiA==}
     engines: {node: '>= 18.0.0'}
+
+  '@sveltejs/sv-utils@0.3.0':
+    resolution: {integrity: sha512-TBQDbHEUy3sFGxhj9LcjyPVF8yM0kIgZG4hCbSYuf67XBoYbg7QpRVkyvEnAR+YqofXzOtOX+qPB9mRPj0eg7A==}
 
   '@sveltejs/vite-plugin-svelte@7.1.2':
     resolution: {integrity: sha512-DrUBA2UXRfDmUX/ZTiEopd3X40yavsJF1FX2RygcuIScHL7o5YX1fMvoYnDhjeJQC4weCOklirpNWlcb2NiSeA==}
@@ -1110,6 +1116,10 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
+  sv@0.16.0:
+    resolution: {integrity: sha512-zKsvxKmtaM8zlfxVH9mI55yXEzPXQlaVWSd3YSD7oAOATEu1pf34XErh1WHM4JcXAwSBrrVTo7Yd3BWRmEVUow==}
+    hasBin: true
+
   svelte-check@4.6.0:
     resolution: {integrity: sha512-KhVnDFDSid57mmZtHz8gfW8AAGylOZ0vPnOIzVmAL+urzwK8sBYXRss953gD8T0OdgAQ11mdWhE6uadmtOz8TQ==}
     engines: {node: '>= 18.0.0'}
@@ -1439,6 +1449,8 @@ snapshots:
       typescript: 6.0.3
 
   '@sveltejs/load-config@0.1.1': {}
+
+  '@sveltejs/sv-utils@0.3.0': {}
 
   '@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.1(@typescript-eslint/types@8.60.1))(vite@8.0.16(@types/node@24.12.4)(jiti@2.7.0))':
     dependencies:
@@ -2068,6 +2080,10 @@ snapshots:
       totalist: 3.0.1
 
   source-map-js@1.2.1: {}
+
+  sv@0.16.0:
+    dependencies:
+      '@sveltejs/sv-utils': 0.3.0
 
   svelte-check@4.6.0(picomatch@4.0.4)(svelte@5.56.1(@typescript-eslint/types@8.60.1))(typescript@6.0.3):
     dependencies:

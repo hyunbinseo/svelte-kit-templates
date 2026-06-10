@@ -8,3 +8,4 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - sv
+  - '@sveltejs/sv-utils'
