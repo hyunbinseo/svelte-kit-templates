@@ -8,3 +8,6 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - sv
+
+overrides:
+  'esrap': '2.2.11'
