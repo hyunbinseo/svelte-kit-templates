@@ -3,6 +3,7 @@ packages:
   - typescript
 
 allowBuilds:
+  '@sentry/cli': false
   '@tailwindcss/oxide': true
   esbuild: true
 
