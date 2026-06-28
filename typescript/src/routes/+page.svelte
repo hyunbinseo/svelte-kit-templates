@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+	import { resolve } from '$app/paths';
+</script>
+
+<p>Login and goto</p>
+<ul>
+	<li><a href={resolve('/setup')}>same page</a></li>
+	<li><a href={resolve('/setup?random')}>random page</a></li>
+</ul>
