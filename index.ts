@@ -23,7 +23,7 @@ if (!noGit && local.version === remote.version) {
 	exit(0);
 }
 
-execSync(`pnpm add -D sv@${remote.version}`);
+execSync(`pnpm add -D -w sv@${remote.version}`);
 const sv = await import('sv');
 
 for (const lang of ['javascript', 'typescript'] as const) {
@@ -57,6 +57,10 @@ for (const lang of ['javascript', 'typescript'] as const) {
 		packageManager: 'pnpm',
 	});
 }
+
+execSync('pnpm i -r');
+execSync('pnpm --dir ./javascript format');
+execSync('pnpm --dir ./typescript format');
 
 writeFileSync(
 	'README.md',
