@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+	import { getWeather } from './weather.remote';
+</script>
+
+<ul>
+	{#each { length: 5 }, index}
+		{@const weather = await getWeather(index)}
+		<li>{index} - {JSON.stringify(weather)}</li>
+	{/each}
+</ul>
