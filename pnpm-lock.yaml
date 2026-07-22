@@ -12,8 +12,8 @@ importers:
         specifier: ^24.13.2
         version: 24.13.2
       sv:
-        specifier: ^0.16.4
-        version: 0.16.4
+        specifier: ^0.16.5
+        version: 0.16.5
       valibot:
         specifier: ^1.4.2
         version: 1.4.2(typescript@6.0.3)
@@ -1795,8 +1795,8 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
-  sv@0.16.4:
-    resolution: {integrity: sha512-WppooXO/suhMZacKnkLSqv5cFvda/j4VrtJfYk14fK7MN9ivwjnJyekZkc1E/ZYnXNxghD1QhRCYOXGQpNPuQw==}
+  sv@0.16.5:
+    resolution: {integrity: sha512-O/QRAA20KyAeF44gUzwxZ6dwLU0RCqY2qh96YMOMUyWygXhQ5J2HKNXdlDvP5QyPj6Il3ttQXs68xq29+LFb3A==}
     hasBin: true
 
   svelte-check@4.7.1:
@@ -3205,7 +3205,7 @@ snapshots:
 
   source-map@0.6.1: {}
 
-  sv@0.16.4:
+  sv@0.16.5:
     dependencies:
       '@sveltejs/sv-utils': 0.3.1
 
