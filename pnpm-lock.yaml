@@ -12,8 +12,8 @@ importers:
         specifier: ^24.13.2
         version: 24.13.2
       sv:
-        specifier: ^0.16.6
-        version: 0.16.6
+        specifier: ^0.17.0
+        version: 0.17.0
       valibot:
         specifier: ^1.4.2
         version: 1.4.2(typescript@6.0.3)
@@ -903,8 +903,8 @@ packages:
     resolution: {integrity: sha512-1LgZ/qUqSoq+QorD83lk2hka79Px0wXNW2q5V1nZlxGhQgw1jrsIbVz5YiCeucVLo4XvFLjXukUaQjIiqowkcg==}
     engines: {node: '>= 18.0.0'}
 
-  '@sveltejs/sv-utils@0.3.2':
-    resolution: {integrity: sha512-mLwU+iaKLiLSqjM45SD9C/wUboRGukqjsZKQiBCDTg7xVp0ZMxM3Qq9wkriP6BTwlh4ZTPrm97UuCMMUYnzRvg==}
+  '@sveltejs/sv-utils@0.3.3':
+    resolution: {integrity: sha512-K6Voe+/4Ry6o3QTFdG4cNkdgW9kvbkJuRyyIyUbSVkuJUVz4jCdvYNuDCBNYC1mpxBFi7nuulpOeuqRjldZXRA==}
 
   '@sveltejs/vite-plugin-svelte@7.1.2':
     resolution: {integrity: sha512-DrUBA2UXRfDmUX/ZTiEopd3X40yavsJF1FX2RygcuIScHL7o5YX1fMvoYnDhjeJQC4weCOklirpNWlcb2NiSeA==}
@@ -1795,8 +1795,8 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
-  sv@0.16.6:
-    resolution: {integrity: sha512-xj6xwHsPYvvP5Xz5p/aAcUK1g97cMqvEtBqGeSQGuIGikJ6qJG51CKM39v33BbB4EXSm4PaOC3nQ8XWAikCrsA==}
+  sv@0.17.0:
+    resolution: {integrity: sha512-bYEZjqq2XSAf6+uE59sXKgGQLS/W8vXrSvuDPeFN7Kit+iDA/LtL8oN/KkldU3pHufSS/R73xaLS4eDrZae62w==}
     hasBin: true
 
   svelte-check@4.7.1:
@@ -2440,7 +2440,7 @@ snapshots:
 
   '@sveltejs/load-config@0.2.0': {}
 
-  '@sveltejs/sv-utils@0.3.2': {}
+  '@sveltejs/sv-utils@0.3.3': {}
 
   '@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.4(@typescript-eslint/types@8.62.1))(vite@8.1.3(@types/node@24.13.2)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.0))':
     dependencies:
@@ -3205,9 +3205,9 @@ snapshots:
 
   source-map@0.6.1: {}
 
-  sv@0.16.6:
+  sv@0.17.0:
     dependencies:
-      '@sveltejs/sv-utils': 0.3.2
+      '@sveltejs/sv-utils': 0.3.3
 
   svelte-check@4.7.1(picomatch@4.0.5)(svelte@5.56.4(@typescript-eslint/types@8.62.1))(typescript@6.0.3):
     dependencies:
