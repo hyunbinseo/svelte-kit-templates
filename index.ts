@@ -49,7 +49,7 @@ for (const lang of ['javascript', 'typescript'] as const) {
 			tailwindcss: sv.officialAddons.tailwindcss,
 		},
 		options: {
-			drizzle: { database: 'sqlite', client: 'better-sqlite3' },
+			drizzle: { database: 'sqlite', sqlite: 'better-sqlite3' },
 			eslint: {},
 			prettier: {},
 			tailwindcss: { plugins: ['forms'] },
