@@ -1,2 +1,21 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+	import { MyFormSchema } from './my-form';
+	import { myForm } from './my-form.remote';
+
+	let removed = $state(false);
+</script>
+
+{#if !removed}
+	<form {...myForm.preflight(MyFormSchema)}>
+		<input {...myForm.fields.value.as('text')} />
+	</form>
+{/if}
+
+<button
+	onclick={() => {
+		myForm.validate({ preflightOnly: true });
+		removed = true;
+	}}
+>
+	Trigger bug
+</button>
