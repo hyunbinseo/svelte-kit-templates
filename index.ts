@@ -5,7 +5,9 @@ import { argv, exit } from 'node:process';
 import { object, parse, string } from 'valibot';
 import local from './package.json' with { type: 'json' };
 
-const noGit = argv[2] === '--no-git';
+const args = new Set(argv.slice(2));
+const noGit = args.has('--no-git');
+const tag = args.has('--next') ? 'next' : 'latest';
 
 if (!noGit) {
 	execSync('git checkout main');
@@ -13,7 +15,7 @@ if (!noGit) {
 	execSync('git reset --hard origin/main');
 }
 
-const response = await fetch('https://registry.npmjs.org/sv/latest');
+const response = await fetch(`https://registry.npmjs.org/sv/${tag}`);
 if (!response.ok) exit(1);
 
 const remote = parse(object({ version: string() }), await response.json());
