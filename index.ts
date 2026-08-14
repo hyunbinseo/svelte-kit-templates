@@ -67,7 +67,7 @@ execSync('pnpm --dir ./typescript format');
 writeFileSync(
 	'README.md',
 	readFileSync('README.md', { encoding: 'utf-8' }).replace(
-		/sv@[\d.]+\d/, //
+		/(?<=`)sv@[^`]+(?=`)/, //
 		`sv@${remote.version}`,
 	),
 );
