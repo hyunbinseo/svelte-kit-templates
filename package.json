@@ -1,6 +1,6 @@
 {
 	"name": "svelte-kit-templates",
-	"version": "1.0.0-next.5",
+	"version": "1.0.0-next.7",
 	"type": "module",
 	"scripts": {
 		"bump": "node index.ts",
@@ -9,7 +9,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^24.13.3",
-		"sv": "1.0.0-next.5",
+		"sv": "1.0.0-next.7",
 		"valibot": "^1.4.2"
 	},
 	"devEngines": {
