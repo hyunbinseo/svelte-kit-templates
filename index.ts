@@ -74,7 +74,8 @@ writeFileSync(
 
 if (!noGit) {
 	execSync('git add .');
-	const command = `pnpm version ${remote.version} -m "sv@${remote.version}" --no-git-checks`;
+	// See https://github.com/pnpm/pnpm/issues/14567
+	const command = `pnpm version ${remote.version} --message "sv@${remote.version}" --no-git-checks`;
 	execSync(command, { stdio: 'inherit' });
 	execSync('git push');
 	execSync('git push --tags');
