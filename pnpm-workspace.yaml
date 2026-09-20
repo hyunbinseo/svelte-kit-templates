@@ -3,8 +3,9 @@ packages:
   - typescript
 
 allowBuilds:
-  '@tailwindcss/oxide': true
-  esbuild: true
+  '@tailwindcss/oxide': false
+  better-sqlite3: false
+  esbuild: false
 
 minimumReleaseAgeExclude:
   - sv

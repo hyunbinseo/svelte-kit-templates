@@ -5,15 +5,19 @@ import { argv, exit } from 'node:process';
 import { object, parse, string } from 'valibot';
 import local from './package.json' with { type: 'json' };
 
-const noGit = argv[2] === '--no-git';
+const args = new Set(argv.slice(2));
+const noGit = args.has('--no-git');
+const opts = args.has('--next')
+	? ({ tag: 'next', branch: 'next' } as const)
+	: ({ tag: 'latest', branch: 'main' } as const);
 
 if (!noGit) {
-	execSync('git checkout main');
+	execSync(`git checkout ${opts.branch}`);
 	execSync('git fetch origin');
-	execSync('git reset --hard origin/main');
+	execSync(`git reset --hard origin/${opts.branch}`);
 }
 
-const response = await fetch('https://registry.npmjs.org/sv/latest');
+const response = await fetch(`https://registry.npmjs.org/sv/${opts.tag}`);
 if (!response.ok) exit(1);
 
 const remote = parse(object({ version: string() }), await response.json());
@@ -49,7 +53,7 @@ for (const lang of ['javascript', 'typescript'] as const) {
 			tailwindcss: sv.officialAddons.tailwindcss,
 		},
 		options: {
-			drizzle: { database: 'sqlite', sqlite: 'better-sqlite3' },
+			drizzle: { database: 'sqlite', sqlite: 'node-sqlite' },
 			eslint: {},
 			prettier: {},
 			tailwindcss: { plugins: ['forms'] },
@@ -65,14 +69,15 @@ execSync('pnpm --dir ./typescript format');
 writeFileSync(
 	'README.md',
 	readFileSync('README.md', { encoding: 'utf-8' }).replace(
-		/sv@[\d.]+\d/, //
+		/(?<=`)sv@[^`]+(?=`)/, //
 		`sv@${remote.version}`,
 	),
 );
 
 if (!noGit) {
 	execSync('git add .');
-	const command = `pnpm version ${remote.version} -m "sv@${remote.version}" --no-git-checks`;
+	// See https://github.com/pnpm/pnpm/issues/14567
+	const command = `pnpm version ${remote.version} --message "sv@${remote.version}" --no-git-checks`;
 	execSync(command, { stdio: 'inherit' });
 	execSync('git push');
 	execSync('git push --tags');
