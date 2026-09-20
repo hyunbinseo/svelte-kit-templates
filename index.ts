@@ -7,15 +7,17 @@ import local from './package.json' with { type: 'json' };
 
 const args = new Set(argv.slice(2));
 const noGit = args.has('--no-git');
-const tag = args.has('--next') ? 'next' : 'latest';
+const opts = args.has('--next')
+	? ({ tag: 'next', branch: 'next' } as const)
+	: ({ tag: 'latest', branch: 'main' } as const);
 
 if (!noGit) {
-	execSync('git checkout main');
+	execSync(`git checkout ${opts.branch}`);
 	execSync('git fetch origin');
-	execSync('git reset --hard origin/main');
+	execSync(`git reset --hard origin/${opts.branch}`);
 }
 
-const response = await fetch(`https://registry.npmjs.org/sv/${tag}`);
+const response = await fetch(`https://registry.npmjs.org/sv/${opts.tag}`);
 if (!response.ok) exit(1);
 
 const remote = parse(object({ version: string() }), await response.json());
