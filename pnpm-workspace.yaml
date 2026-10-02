@@ -10,3 +10,5 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - sv
   - '@sveltejs/sv-utils'
+  - '@sveltejs/adapter-auto@8.0.0'
+  - '@sveltejs/kit@3.0.0'
