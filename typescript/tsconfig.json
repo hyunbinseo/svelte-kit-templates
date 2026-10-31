@@ -1,7 +1,14 @@
 {
 	"extends": "$app/tsconfig",
 	"compilerOptions": {
-		"strict": true
+		"strict": true,
+		"types": ["$app/types", "node"]
 	},
-	"include": ["src", "vite.config.ts", "drizzle.config.ts"]
+	"include": [
+		"src",
+		"vite.config.ts",
+		"eslint.config.js",
+		"prettier.config.js",
+		"drizzle.config.ts"
+	]
 }
